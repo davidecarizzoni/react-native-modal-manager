@@ -65,7 +65,7 @@ function removeOldRef(oldRef: ModalRef | null) {
   refs = refs.filter(r => r.current !== oldRef);
 }
 
-export function Modal(props: ModalProps) {
+export default function Modal(props: ModalProps) {
   const ModalRef = useRef<ModalRef | null>(null);
 
   /*
