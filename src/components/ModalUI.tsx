@@ -65,7 +65,6 @@ export const ModalUI = ({
       avoidKeyboard={false}
       swipeDirection={swipeDirection}
       swipeThreshold={40}
-      propagateSwipe={true}
       onSwipeMove={e => {
         if(isBottomAndAnimated) {
           const newHeight = baseHeight * e;
@@ -79,7 +78,7 @@ export const ModalUI = ({
       }}
       onSwipeComplete={(params, gestureState) => {
         if(isBottomAndAnimated) {
-          if (params.swipingDirection === 'down' && gestureState.dy > (baseHeight * 0.6)) {
+          if (params.swipingDirection === 'down' && gestureState.dy > (baseHeight * 0.3)) {
             hide({});
           } else {
             setHeight(baseHeight);
