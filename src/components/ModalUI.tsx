@@ -52,7 +52,6 @@ export const ModalUI = ({
     )
   }
 
-  // @ts-ignore
   return (
     <RNModal
       {...RNModal.defaultProps}
