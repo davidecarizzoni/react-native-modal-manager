@@ -9,6 +9,7 @@ export type UseModalParams = {
 const DEFAULT_OPTIONS: ModalOptions = {
   dismissable: true,
   position: 'center',
+  animated: false
 };
 
 export const useModal = ({ defaultOptions }: UseModalParams) => {
