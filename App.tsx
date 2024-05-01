@@ -7,7 +7,7 @@ function App() {
     Modal.show({
       children: (
         <BaseBottomModalContainer style={{ height: 400, backgroundColor: 'white' }}>
-          <Text>Center modal</Text>
+          <Text>Bottom modal</Text>
         </BaseBottomModalContainer>
       ),
       dismissable: true,
@@ -25,7 +25,7 @@ function App() {
       dismissable: true,
       position: 'center',
     });
-  };
+  }
 
   return (
     <SafeAreaView
