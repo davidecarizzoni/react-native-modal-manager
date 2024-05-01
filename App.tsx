@@ -1,9 +1,6 @@
 import React from 'react';
 import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
-import { BaseCenterModalContainer } from "./src/modal-manager/components/BaseCenterModal.tsx";
-import { BaseBottomModalContainer } from "./src/modal-manager/components/BaseBottomModal.tsx";
-
-import Modal from './src/modal-manager'
+import Modal, { BaseCenterModalContainer, BaseBottomModalContainer } from "./src/modal-manager";
 
 function App() {
   const showBottomModal = () => {

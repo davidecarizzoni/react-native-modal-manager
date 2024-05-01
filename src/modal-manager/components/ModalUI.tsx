@@ -1,8 +1,7 @@
 import { Dimensions, StyleSheet } from "react-native";
 import { ModalConfig, ModalData, ModalHideParams, ModalOptions, ModalShowParams } from "../types";
 import RNModal from "react-native-modal";
-import { useCallback, useState } from "react";
-import { BaseBottomModalContainer } from "./BaseBottomModal.tsx";
+import { useCallback } from "react";
 
 export type ModalUIProps = {
   isVisible: boolean;
@@ -24,15 +23,9 @@ export const ModalUI = ({
   onHide,
   config,
 }: ModalUIProps) => {
-  const baseHeight = 400
-  const [height, setHeight] = useState(baseHeight);
   const { children } = data;
   const { style } = config || {};
   const { dismissable, position, animated } = options;
-  
-  const isBottomAndAnimated = position === 'bottom' && animated === true;
-  const swipeDirection = animated ? 'down' : undefined;
-  
 
   const onBackdropPress = useCallback(() => {
     if (dismissable) {
@@ -42,14 +35,6 @@ export const ModalUI = ({
 
   if (!children) {
     return null;
-  }
-  
-  const renderAnimatedBottomModal = () => {
-    return (
-      <BaseBottomModalContainer style={{ backgroundColor: "white" }} height={height}>
-        {children}
-      </BaseBottomModalContainer>
-    )
   }
 
   return (
@@ -62,37 +47,10 @@ export const ModalUI = ({
       style={[modalPositionStyles[position], styles.modal, style]}
       onBackdropPress={onBackdropPress}
       avoidKeyboard={false}
-      swipeDirection={swipeDirection}
-      swipeThreshold={40}
-      onSwipeMove={e => {
-        if(isBottomAndAnimated) {
-          const newHeight = baseHeight * e;
-          setHeight(newHeight)
-        }
-      }}
-      onSwipeCancel={() => {
-        if(isBottomAndAnimated) {
-          setHeight(baseHeight);
-        }
-      }}
-      onSwipeComplete={(params, gestureState) => {
-        if(isBottomAndAnimated) {
-          if (params.swipingDirection === 'down' && gestureState.dy > (baseHeight * 0.3)) {
-            hide({});
-          } else {
-            setHeight(baseHeight);
-          }
-        }
-      }}
-      onModalHide={() => {
-        onHide();
-        if(isBottomAndAnimated) {
-          setHeight(baseHeight);
-        }
-      }}
+      onModalHide={onHide}
       backdropOpacity={0.4}
     >
-      {isBottomAndAnimated ? renderAnimatedBottomModal() : children}
+      {children}
     </RNModal>
   );
 };

@@ -6,7 +6,7 @@ import {
   ModalShowParams,
 } from './types';
 import { useModal } from './hook/useModal.ts';
-import { ModalUI } from './components/ModalUI.tsx';
+import { ModalUI } from "./components";
 
 const ModalRoot = forwardRef((props: ModalProps, ref) => {
   const { config, ...defaultOptions } = props;
@@ -65,7 +65,7 @@ function removeOldRef(oldRef: ModalRef | null) {
   refs = refs.filter(r => r.current !== oldRef);
 }
 
-export default function Modal(props: ModalProps) {
+export function Modal(props: ModalProps) {
   const ModalRef = useRef<ModalRef | null>(null);
 
   /*
