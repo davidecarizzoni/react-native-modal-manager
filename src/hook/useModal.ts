@@ -41,12 +41,6 @@ export const useModal = ({ defaultOptions }: UseModalParams) => {
 
   const hide = useCallback(() => {
     setIsVisible(false);
-    // setTimeout(() => {
-    //   setData({
-    //     children: null,
-    //   });
-    //   setOptions(initialOptions);
-    // }, 200);
   }, [initialOptions]);
 
   const onHide = useCallback(() => {

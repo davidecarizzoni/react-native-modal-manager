@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { StyleProp, ViewProps } from 'react-native';
+import { StyleProp } from 'react-native';
 
 export type ReactChildren = ReactNode;
 

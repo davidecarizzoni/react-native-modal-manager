@@ -33,8 +33,6 @@ export const ModalUI = ({
   const { style } = config || {};
   const { dismissable, position } = options;
 
-  console.debug({ style });
-
   const onBackdropPress = useCallback(() => {
     if (dismissable) {
       hide({});
@@ -47,7 +45,7 @@ export const ModalUI = ({
 
   return (
     <RNModal
-      animationOut={'slideOutDown'}
+      {...RNModal.defaultProps}
       isVisible={isVisible}
       useNativeDriver
       deviceHeight={SCREEN_HEIGHT}
@@ -56,7 +54,8 @@ export const ModalUI = ({
       onBackdropPress={onBackdropPress}
       avoidKeyboard={false}
       onModalHide={onHide}
-      backdropOpacity={0.4}>
+      backdropOpacity={0.4}
+    >
       {children}
     </RNModal>
   );
