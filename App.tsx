@@ -8,7 +8,7 @@ function App() {
   const showBottomModal = () => {
     Modal.show({
       children: (
-        <BaseBottomModalContainer style={{ height: 400, backgroundColor: 'red',}}>
+        <BaseBottomModalContainer style={{ height: 400, backgroundColor: 'white' }}>
           <Text>Bottom modal</Text>
         </BaseBottomModalContainer>
       ),
@@ -20,7 +20,7 @@ function App() {
   const showCenteredModal = () => {
     Modal.show({
       children: (
-        <BaseCenterModalContainer style={{ height: 400, backgroundColor: 'red',}}>
+        <BaseCenterModalContainer style={{ height: 400, backgroundColor: 'white' }}>
           <Text>Center modal</Text>
         </BaseCenterModalContainer>
       ),
