@@ -9,6 +9,7 @@ export type ModalData = {
 
 export type ModalOptions = {
   dismissable: boolean;
+  animated?: boolean;
   position: 'center' | 'bottom';
 };
 

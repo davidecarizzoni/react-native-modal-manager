@@ -8,12 +8,11 @@ function App() {
   const showBottomModal = () => {
     Modal.show({
       children: (
-        <BaseBottomModalContainer style={{ height: 400, backgroundColor: 'white' }}>
-          <Text>Bottom modal</Text>
-        </BaseBottomModalContainer>
+        <Text>Bottom modal</Text>
       ),
       dismissable: true,
       position: 'bottom',
+      animated: true,
     });
   };
   

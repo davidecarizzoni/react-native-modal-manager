@@ -22,8 +22,7 @@ export const useModal = ({ defaultOptions }: UseModalParams) => {
     defaultOptions,
   ) as Required<ModalOptions>;
 
-  const [options, setOptions] =
-    useState<Required<ModalOptions>>(initialOptions);
+  const [options, setOptions] = useState<ModalOptions>(initialOptions);
 
   const show = useCallback(
     (params: ModalShowParams) => {
@@ -33,6 +32,7 @@ export const useModal = ({ defaultOptions }: UseModalParams) => {
       setOptions({
         dismissable: params.dismissable ?? initialOptions.dismissable,
         position: params.position ?? initialOptions.position,
+        animated: params.animated,
       });
       setIsVisible(true);
     },

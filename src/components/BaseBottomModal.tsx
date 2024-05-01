@@ -1,10 +1,10 @@
-import { StyleSheet, View, ViewProps } from "react-native";
+import { StyleSheet, Animated, ViewProps } from "react-native";
 
-export const BaseBottomModalContainer = ({ children, style, ...props }: ViewProps) => {
+export const BaseBottomModalContainer = ({ children, style, height, ...props }: ViewProps & { height: number }) => {
   return (
-    <View style={StyleSheet.compose(styles.container, style)} {...props}>
+    <Animated.View style={[styles.container, style, { height }]} {...props}>
       {children}
-    </View>
+    </Animated.View>
   )
 }
 
